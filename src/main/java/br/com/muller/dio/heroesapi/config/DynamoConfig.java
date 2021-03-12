@@ -20,19 +20,24 @@ public class DynamoConfig {
     private String amazonAWSAccessKey;
 
     @Value("${aws_secret_access_key}")
-    private String amazonAWSSecretAccessKey;
+    private String amazonAWSSecretKey;
 
     @Bean
-    public AmazonDynamoDB amazonDynamoDB(){
-        AmazonDynamoDB amazonDynamoDB = new AmazonDynamoDBClient(amazonAWSCredentials());
-        if(StringUtils.isEmpty(amazonDynamoDBEndpoint)){
+    public AmazonDynamoDB amazonDynamoDB() {
+        AmazonDynamoDB amazonDynamoDB
+                = new AmazonDynamoDBClient(amazonAWSCredentials());
+
+        if (!StringUtils.isEmpty(amazonDynamoDBEndpoint)) {
             amazonDynamoDB.setEndpoint(amazonDynamoDBEndpoint);
         }
+
         return amazonDynamoDB;
     }
 
     @Bean
-    public AWSCredentials amazonAWSCredentials(){
-        return new BasicAWSCredentials(amazonAWSAccessKey,amazonAWSSecretAccessKey);
+    public AWSCredentials amazonAWSCredentials() {
+        return new BasicAWSCredentials(
+                amazonAWSAccessKey, amazonAWSSecretKey);
     }
+
 }

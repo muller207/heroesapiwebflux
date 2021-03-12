@@ -6,16 +6,13 @@ import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.model.*;
-import org.socialsignin.spring.data.dynamodb.repository.config.EnableDynamoDBRepositories;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
 
 import static br.com.muller.dio.heroesapi.constants.HeroesConstants.ENDPOINT_DYNAMO;
 import static br.com.muller.dio.heroesapi.constants.HeroesConstants.REGION_DYNAMO;
 
-@Configuration
-@EnableDynamoDBRepositories
+
 public class HeroesTable {
     public static void main(String[] args) {
         AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
