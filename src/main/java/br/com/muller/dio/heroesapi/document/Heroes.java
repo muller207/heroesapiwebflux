@@ -7,6 +7,9 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 @DynamoDBTable(tableName = "Heroes_Table")
 public class Heroes {
@@ -22,43 +25,4 @@ public class Heroes {
 
     @DynamoDBAttribute(attributeName = "films")
     private int films;
-
-    public Heroes(String id, String name, String universe, int films) {
-        this.id = id;
-        this.name = name;
-        this.universe = universe;
-        this.films = films;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUniverse() {
-        return universe;
-    }
-
-    public void setUniverse(String universe) {
-        this.universe = universe;
-    }
-
-    public int getFilms() {
-        return films;
-    }
-
-    public void setFilms(int films) {
-        this.films = films;
-    }
 }
